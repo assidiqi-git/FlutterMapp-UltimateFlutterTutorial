@@ -17,6 +17,22 @@ class WidgetTree extends StatelessWidget {
         title: Text('Flutter'),
         centerTitle: true,
         backgroundColor: Colors.teal,
+        actions: [
+          IconButton(
+            onPressed: () {
+              isDarkModeNotifier.value = !isDarkModeNotifier.value;
+            },
+            icon: ValueListenableBuilder(
+              valueListenable: isDarkModeNotifier,
+              builder: (context, isDarkMode, child) {
+                if (isDarkMode) {
+                  return Icon(Icons.light_mode);
+                }
+                return Icon(Icons.dark_mode);
+              },
+            ),
+          ),
+        ],
       ),
       drawer: SafeArea(
         child: Drawer(
