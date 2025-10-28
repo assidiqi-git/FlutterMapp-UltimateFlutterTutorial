@@ -9,26 +9,28 @@ class HomePages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(20),
-      child: Column(
-        children: [
-          HeroWidget(title: ''),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            width: double.infinity,
-            child: Card(
-              child: Padding(
-                padding: EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Basic Layout', style: KTextStyle.CardTitle),
-                    Text('Deskripsi', style: KTextStyle.CardBody),
-                  ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            HeroWidget(title: ''),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              width: double.infinity,
+              child: Card(
+                child: Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Basic Layout', style: KTextStyle.CardTitle),
+                      Text('Deskripsi', style: KTextStyle.CardBody),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
