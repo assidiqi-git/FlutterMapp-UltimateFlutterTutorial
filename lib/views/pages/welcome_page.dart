@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/views/widget_tree.dart';
-import 'package:flutter_app/views/widgets/hero_widget.dart';
+import 'package:flutter_app/views/pages/login_page.dart';
 import 'package:lottie/lottie.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -28,11 +27,11 @@ class WelcomePage extends StatelessWidget {
             SizedBox(height: 20),
             FilledButton(
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return WidgetTree();
+                      return LoginPage();
                     },
                   ),
                 );
@@ -44,11 +43,11 @@ class WelcomePage extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return WidgetTree();
+                      return LoginPage();
                     },
                   ),
                 );
