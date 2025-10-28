@@ -24,6 +24,52 @@ class _SettingsPageState extends State<SettingsPage> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AboutDialog();
+                    },
+                  );
+                },
+                child: Text('Open About Dialog'),
+              ),
+              Divider(),
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text('Ini Alert Dialog'),
+                        content: Text('ini content'),
+                        actions: [
+                          FilledButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text('Close'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: Text('Open Alert Dialog'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      duration: Duration(seconds: 1),
+                      content: Text('SnackBar'),
+                      behavior: SnackBarBehavior.floating,
+                    ),
+                  );
+                },
+                child: Text('Open SnackBar'),
+              ),
               DropdownButton(
                 menuWidth: double.infinity,
                 value: menuItem,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/notifiers.dart';
-import 'package:flutter_app/views/pages/home_pages.dart';
-import 'package:flutter_app/views/pages/profile_pages.dart';
-import 'package:flutter_app/views/pages/settings_pages.dart';
+import 'package:flutter_app/views/pages/home_page.dart';
+import 'package:flutter_app/views/pages/profile_page.dart';
+import 'package:flutter_app/views/pages/settings_page.dart';
 
 import 'widgets/navbar_widget.dart';
 
