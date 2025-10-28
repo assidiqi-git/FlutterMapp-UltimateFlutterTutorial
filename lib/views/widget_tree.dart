@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/data/notifiers.dart';
 import 'package:flutter_app/views/pages/home_pages.dart';
 import 'package:flutter_app/views/pages/profile_pages.dart';
+import 'package:flutter_app/views/pages/settings_pages.dart';
 
 import 'widgets/navbar_widget.dart';
 
@@ -32,23 +33,25 @@ class WidgetTree extends StatelessWidget {
               },
             ),
           ),
-        ],
-      ),
-      drawer: SafeArea(
-        child: Drawer(
-          child: Column(
-            children: [
-              DrawerHeader(child: Text('Drawer Header')),
-              ListTile(title: Text('Logout')),
-            ],
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SettingsPage(title: 'Settings');
+                  },
+                ),
+              );
+            },
+            icon: Icon(Icons.settings, color: Colors.white),
           ),
-        ),
+        ],
       ),
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
         spacing: 20,
         children: [
-          FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
           FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
         ],
       ),
