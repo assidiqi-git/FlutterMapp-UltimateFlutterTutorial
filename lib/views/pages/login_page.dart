@@ -33,51 +33,61 @@ class _LoginPageState extends State<LoginPage> {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              spacing: 20,
-              children: [
-                Column(
-                  spacing: 10,
-                  children: [
-                    Lottie.asset('assets/lotties/welcome.json', height: 400),
-                    TextField(
-                      controller: emailController,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        hintText: 'Email',
-                      ),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return FractionallySizedBox(
+                  widthFactor: constraints.maxWidth > 500 ? 0.5 : 1,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 20,
+                    children: [
+                      Column(
+                        spacing: 10,
+                        children: [
+                          Lottie.asset(
+                            'assets/lotties/welcome.json',
+                            height: 400,
+                          ),
+                          TextField(
+                            controller: emailController,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              hintText: 'Email',
+                            ),
 
-                      onEditingComplete: () {
-                        setState(() {});
-                      },
-                    ),
-                    TextField(
-                      controller: passController,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        hintText: 'Password',
+                            onEditingComplete: () {
+                              setState(() {});
+                            },
+                          ),
+                          TextField(
+                            controller: passController,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              hintText: 'Password',
+                            ),
+                            onEditingComplete: () {
+                              setState(() {});
+                            },
+                          ),
+                        ],
                       ),
-                      onEditingComplete: () {
-                        setState(() {});
-                      },
-                    ),
-                  ],
-                ),
-                FilledButton(
-                  onPressed: () {
-                    onLoginPressed();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(double.infinity, 40),
+                      FilledButton(
+                        onPressed: () {
+                          onLoginPressed();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: Size(double.infinity, 40),
+                        ),
+                        child: Text(widget.title),
+                      ),
+                    ],
                   ),
-                  child: Text(widget.title),
-                ),
-              ],
+                );
+              },
             ),
           ),
         ),
