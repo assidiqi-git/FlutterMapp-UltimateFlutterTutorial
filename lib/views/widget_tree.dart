@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/constants.dart';
 import 'package:flutter_app/data/notifiers.dart';
+import 'package:flutter_app/views/pages/courses_page.dart';
 import 'package:flutter_app/views/pages/home_page.dart';
 import 'package:flutter_app/views/pages/profile_page.dart';
 import 'package:flutter_app/views/pages/settings_page.dart';
@@ -8,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'widgets/navbar_widget.dart';
 
-List<Widget> pages = [HomePages(), ProfilePages()];
+List<Widget> pages = [HomePages(), CoursesPage(), ProfilePages()];
 
 class WidgetTree extends StatelessWidget {
   const WidgetTree({super.key});

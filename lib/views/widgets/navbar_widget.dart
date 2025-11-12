@@ -12,6 +12,10 @@ class NavbarWidget extends StatelessWidget {
         return NavigationBar(
           destinations: [
             NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            NavigationDestination(
+              icon: Icon(Icons.library_books_sharp),
+              label: 'Courses',
+            ),
             NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
           ],
           onDestinationSelected: (int index) {
