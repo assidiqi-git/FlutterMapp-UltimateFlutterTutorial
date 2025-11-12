@@ -22,8 +22,8 @@ class HomePages extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Basic Layout', style: KTextStyle.CardTitle),
-                      Text('Deskripsi', style: KTextStyle.CardBody),
+                      Text('Basic Layout', style: KTextStyle.cardTitle),
+                      Text('Deskripsi', style: KTextStyle.cardBody),
                     ],
                   ),
                 ),

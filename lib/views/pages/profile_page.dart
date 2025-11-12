@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/notifiers.dart';
 import 'package:flutter_app/views/pages/welcome_page.dart';
-import 'package:flutter_app/views/widgets/hero_widget.dart';
 
 class ProfilePages extends StatelessWidget {
   const ProfilePages({super.key});
