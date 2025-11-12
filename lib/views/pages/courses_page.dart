@@ -1,6 +1,7 @@
 import 'dart:convert' as convert;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/data/classes/activity_class.dart';
 import 'package:http/http.dart' as http;
 
 class CoursesPage extends StatefulWidget {
@@ -11,6 +12,8 @@ class CoursesPage extends StatefulWidget {
 }
 
 class _CoursesPageState extends State<CoursesPage> {
+  late Activity activity;
+
   @override
   void initState() {
     getData();
@@ -23,12 +26,13 @@ class _CoursesPageState extends State<CoursesPage> {
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
     if (response.statusCode == 200) {
-      var jsonResponse =
-          convert.jsonDecode(response.body) as Map<String, dynamic>;
-      var itemCount = jsonResponse['activity'];
-      print('Number of books about http: $itemCount.');
+      activity = Activity.fromJson(
+        convert.jsonDecode(response.body) as Map<String, dynamic>,
+      );
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load album');
     }
   }
 
