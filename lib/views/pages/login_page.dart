@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/views/widget_tree.dart';
 import 'package:flutter_app/views/widgets/hero_widget.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.title});
@@ -12,8 +13,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passController = TextEditingController();
+  TextEditingController emailController = TextEditingController(text: '123');
+  TextEditingController passController = TextEditingController(text: '123');
 
   String confirmedEmail = '123';
   String confirmedPass = '123';
@@ -37,10 +38,10 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               spacing: 20,
               children: [
-                HeroWidget(title: widget.title),
                 Column(
                   spacing: 10,
                   children: [
+                    Lottie.asset('assets/lotties/welcome.json', height: 400),
                     TextField(
                       controller: emailController,
                       decoration: InputDecoration(
@@ -49,6 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         hintText: 'Email',
                       ),
+
                       onEditingComplete: () {
                         setState(() {});
                       },
@@ -67,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-                ElevatedButton(
+                FilledButton(
                   onPressed: () {
                     onLoginPressed();
                   },
@@ -87,13 +89,14 @@ class _LoginPageState extends State<LoginPage> {
   void onLoginPressed() {
     if (confirmedEmail == emailController.text &&
         confirmedPass == passController.text) {
-      Navigator.pushReplacement(
+      Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
           builder: (context) {
             return WidgetTree();
           },
         ),
+        (route) => false,
       );
     }
   }

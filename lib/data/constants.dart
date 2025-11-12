@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+class KConstants {
+  static const String themeKey = 'themeKey';
+}
+
 class KTextStyle {
   static const TextStyle cardTitle = TextStyle(
     color: Colors.teal,
@@ -8,4 +12,12 @@ class KTextStyle {
   );
 
   static const TextStyle cardBody = TextStyle(fontSize: 16);
+}
+
+class KContent {
+  static const String introduction = 'Introduction';
+  static const String buildUI = 'Build UI';
+  static const String widget = 'Widget';
+  static const String constant = 'Constant';
+  static const String uiImprove = 'UI Improve';
 }
